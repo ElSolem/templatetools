@@ -1,0 +1,11 @@
+echo '#!/bin/bash
+echo "Updating Python and cleaning unnecessary packages..."
+pip3 freeze | xargs pip3 uninstall -y
+pip3 install --upgrade pip setuptools wheel
+pip3 install pygame-ce pymunk numpy scipy torch tensorflow keras stable-baselines3 gymnasium deap matplotlib networkx pygraphviz py_trees transitions opencv-python-headless
+echo "Python is clean and up-to-date!"' | sudo tee /usr/local/bin/python-cleanup
+
+sudo chmod +x /usr/local/bin/python-cleanup
+
+// run code:
+python-cleanup
